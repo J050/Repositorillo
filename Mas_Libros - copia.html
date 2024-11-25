@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Libros - Biblioteca Online</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Limitación de tamaño para las imágenes de los libros */
+    .book-image {
+      width: 100%;
+      max-width: 500px;
+      max-height: 750px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Biblioteca Online</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="Biblio-Web-Teca.html">(( Ir al inicio ))</a>
+        </li>
+      </ul>
+      <!-- Barra de búsqueda -->
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar libros" aria-label="Buscar" id="searchInput">
+      </form>
+    </div>
+  </nav>
+
+  <!-- Encabezado -->
+  <header class="jumbotron text-center">
+    <h1 class="display-4">Catálogo de Libros</h1>
+    <p class="lead">Explora nuestros libros disponibles</p>
+  </header>
+
+  <!-- Sección de libros -->
+  <div class="container my-5" id="bookList">
+    
+    <!-- Libro 1 -->
+    <div class="col-12 mb-4 book-item">
+      <div class="card">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTcTPeZf6PiS8c279spkcb-ubltILokd7CEA&s" class="card-img book-image" alt="Imagen del libro">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Libro para colorear de Peppa Pig</h5>
+              <p class="card-text">Autor: Desconocido</p>
+              <p class="card-text">Un libro de colorear de la cerdita mas popular. Disponible para descargar.</p>
+              <a href="#" class="btn btn-primary">Ir al libro web</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Libro 1 -->
+    <div class="col-12 mb-4 book-item">
+        <div class="card">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="https://www.planetadelibros.com/usuaris/libros/fotos/357/original/portada_el-senor-de-los-anillos-1-la-comunidad-del-anillo_j-r-r-tolkien_202207271304.jpg" class="card-img book-image" alt="Imagen del libro">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">El Señor de los Anillos / Libro 1: La comunidad del Anillo</h5>
+                <p class="card-text">Autor: JRR Tolkien</p>
+                <p class="card-text">El primer libro de la famosa saga creada por JRR Tolkien.</p>
+                <a href="#" class="btn btn-primary">Ir al libro web</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+  <!-- Pie de página -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2024 Biblio-Web-Teca. Ningun derecho reservado.</p>
+  </footer>
+
+  <!-- Bootstrap JS y dependencias -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Script de búsqueda -->
+  <script>
+    document.getElementById("searchInput").addEventListener("input", function() {
+      let searchTerm = this.value.toLowerCase();
+      let bookItems = document.querySelectorAll(".book-item");
+
+      bookItems.forEach(function(item) {
+        let title = item.querySelector(".card-title").textContent.toLowerCase();
+        let author = item.querySelector(".card-text").textContent.toLowerCase();
+
+        // Mostrar el libro si el término de búsqueda coincide con el título o autor
+        if (title.includes(searchTerm) || author.includes(searchTerm)) {
+          item.style.display = "block";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
